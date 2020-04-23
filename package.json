@@ -1,0 +1,11 @@
+{
+  "name": "@toolio/config",
+  "version": "0.1.0",
+  "description": "Project configuration with 'strict' or 'relaxed' mode.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "author": "Michael Arakilian",
+  "license": "MIT"
+}
