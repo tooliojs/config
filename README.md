@@ -2,7 +2,21 @@
 
 **Project configuration with 'strict' or 'relaxed' mode.**
 
-more coming soon...
+[![CircleCI](https://circleci.com/gh/tooliojs/config.svg?style=shield)](https://circleci.com/gh/tooliojs/config)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/tooliojs/config/blob/master/LICENSE.md)
+
+## Install
+```
+npm install @toolio/config
+```
+
+## Usage
+```js
+const config = require('@toolio/config')
+```
+
+## Documentation
+coming soon...
 
 ## License
 
