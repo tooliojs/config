@@ -2,6 +2,11 @@
 
 *Note: currently in beta.*
 
+## v0.2.2 - Strict Mode was born
+- First implementation of @toolio/config `strict` mode
+- Very minimal testing was conducted, needs a lot more battle proofing
+- Currently undocumented
+
 ## v0.2.1 - Relaxed Mode was born
 - First implementation of @toolio/config `relaxed` mode
 - Light testing was conducted, but needs more battle proofing

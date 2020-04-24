@@ -5,3 +5,5 @@ test
 CHANGELOG*
 LICENSE*
 README*
+node_modules
+package-lock*

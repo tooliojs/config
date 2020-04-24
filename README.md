@@ -13,6 +13,7 @@ npm install @toolio/config
 ## Usage
 ```js
 const config = require('@toolio/config')
+console.log(config)
 ```
 
 ## Documentation
