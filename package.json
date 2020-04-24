@@ -1,11 +1,20 @@
 {
   "name": "@toolio/config",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Project configuration with 'strict' or 'relaxed' mode.",
   "main": "index.js",
   "scripts": {
     "test": "node test/index.js"
   },
-  "author": "Michael Arakilian",
+  "toolioConfig": {
+    "root": ".toolio",
+    "filename": "config",
+    "ext": [
+      "yaml",
+      "yml",
+      "json",
+      "js"
+    ]
+  },
   "license": "MIT"
 }
