@@ -1,6 +1,6 @@
 {
   "name": "@toolio/config",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Project configuration with 'strict' or 'relaxed' mode.",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,14 @@
       "js"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tooliojs/config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tooliojs/config/issues"
+  },
+  "homepage": "https://github.com/tooliojs/config#readme",
   "license": "MIT",
   "devDependencies": {
     "@hapi/joi": "^17.1.1"
