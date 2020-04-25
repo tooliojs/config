@@ -1,4 +1,7 @@
 module.exports = function() {
+    let def_script = '.js'
+    let def_content = ''
+    let def_filemode = { mode: 0o755 }
     const fs = require('fs')
     const ext = require('./lib/_util/ext')
     const build = require('./lib/build')
@@ -14,6 +17,18 @@ module.exports = function() {
     let __paths = []
     let non_resolved = []
     let non_resolved_config = {}
+
+    if(!fs.existsSync(__join(__homedir, settings.root))) {
+        fs.mkdirSync(__join(__homedir, settings.root))
+        fs.writeFileSync(__join(__homedir, settings.root, settings.filename+def_script), def_content, def_filemode)
+    } 
+    else if(fs.existsSync(__join(__homedir, settings.root))) {
+        let user_configs_exists
+        settings.ext.forEach(ex => {
+            if(fs.existsSync(__join(__homedir, settings.root, settings.filename+'.'+ex))) user_configs_exists = true
+        })
+        if(!user_configs_exists) fs.writeFileSync(__join(__homedir, settings.root, settings.filename+def_script), def_content, def_filemode)
+    }
 
     settings.ext.forEach(ext => {
         let check = settings.root
@@ -32,27 +47,9 @@ module.exports = function() {
     if(!Object.keys(non_resolved_config).length) return undefined
     else resolved = handle(non_resolved_config)
 
-    if(__paths.length === 1) {
-        try{
-            let mark
-            __platform === 'win32' ? mark = '\\' : mark = '/' 
-            if(ext(__paths[0]) !== 'js') { console.log('error: js-yaml is not installed'); process.exit() }
-
-            let src_filename = __paths[0].split(mark)[__paths[0].split(mark).length -1]
-
-
-            fs.copyFile(__paths[0], __join(__dirname, 'node_modules', '@toolio', 'config', 'tmp', src_filename), (err) => {
-                if (err) throw err;
-                console.log('source.txt was copied to destination.txt');
-            })
-
-        } catch(err) {}
-    }
-    if(__paths.length === 2) {
-        let builds = {}
-        __paths.forEach(_p => { merge(builds, build(_p)) })
-        if(builds !== {}) resolved = builds
-    }
+    let builds = {}
+    __paths.forEach(_p => { merge(builds, build(_p)) })
+    resolved = builds
 
     return resolved
 }()
