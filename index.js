@@ -39,11 +39,13 @@ module.exports = function() {
             if(ext(__paths[0]) !== 'js') { console.log('error: js-yaml is not installed'); process.exit() }
 
             let src_filename = __paths[0].split(mark)[__paths[0].split(mark).length -1]
-            console.log(__paths[0], '--', src_filename)
-            // fs.copyFile(__paths[0], __join(__dirname, 'node_modules', '@toolio', 'config', src_filename), (err) => {
-            //     if (err) throw err;
-            //     console.log('source.txt was copied to destination.txt');
-            // })
+
+
+            fs.copyFile(__paths[0], __join(__dirname, 'node_modules', '@toolio', 'config', 'tmp', src_filename), (err) => {
+                if (err) throw err;
+                console.log('source.txt was copied to destination.txt');
+            })
+
         } catch(err) {}
     }
     if(__paths.length === 2) {
