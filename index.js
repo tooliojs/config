@@ -3,14 +3,12 @@ module.exports = function() {
     let def_content = ''
     let def_filemode = { mode: 0o755 }
     const fs = require('fs')
-    const ext = require('./lib/_util/ext')
     const build = require('./lib/build')
     const handle = require('./lib/handle')
     const merge = require('./lib/_util/merge')
     const __join = require('path').join
     const __dirname = require('path').resolve()
     const __homedir = require('os').homedir()
-    const __platform = require('os').platform()
     const settings = require('./lib/_util/settings')()
 
     let resolved
@@ -50,6 +48,12 @@ module.exports = function() {
     let builds = {}
     __paths.forEach(_p => { merge(builds, build(_p)) })
     resolved = builds
+
+    if(builds && builds.config && builds.config.exclude && builds.config.exclude.length && typeof builds.config.exclude !== 'string') {
+        builds.config.exclude.forEach(co_key => {
+            delete resolved[co_key]
+        })
+    }
 
     return resolved
 }()

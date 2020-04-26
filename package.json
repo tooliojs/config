@@ -1,6 +1,6 @@
 {
   "name": "@toolio/config",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "Project configuration with 'strict' or 'relaxed' mode.",
   "main": "index.js",
   "scripts": {
